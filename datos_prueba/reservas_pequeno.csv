@@ -1,0 +1,51 @@
+idReserva,dni,pasajero,codigoVuelo,origen,destino,fecha,hora,clase,categoria,precio,estado
+RES-000001,88209509,Lucas Paredes,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,251.90,Confirmada
+RES-000002,78671265,Gael Salazar,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,322.00,Confirmada
+RES-000003,54837952,Jhon Acapana,JZ9614,Puno,Lima,2027-03-01,11:30,Premium,Frecuente,314.00,Pendiente
+RES-000004,67615033,Belén Soto,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,299.00,EnEspera
+RES-000005,49322064,Sonia Ríos,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Regular,283.00,Confirmada
+RES-000006,58326701,Manuel Roldán,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,250.00,Cancelada
+RES-000007,86742050,Valeria Nieto,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,220.90,CheckIn
+RES-000008,49619975,Patricia Valdivia,JZ9614,Puno,Lima,2027-03-01,11:30,Premium,Frecuente,356.00,Confirmada
+RES-000009,88088067,Piero Condori,DB684,Lima,San Martín,2027-03-01,11:30,Ejecutiva,Frecuente,871.90,Confirmada
+RES-000010,53579659,Elizabeth Guzmán,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Regular,276.00,Confirmada
+RES-000011,83273848,Nancy Acapana,NR3481,San Martín,Huánuco,2027-03-09,12:35,Premium,Regular,309.90,Confirmada
+RES-000012,74478589,Valeria Farfán,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,299.00,Confirmada
+RES-000013,62359864,Kimberly Gonzales,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Frecuente,235.90,EnEspera
+RES-000014,61948454,Mateo Miranda,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Regular,348.90,Confirmada
+RES-000015,46694594,Gabriel Juárez,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Regular,333.90,Confirmada
+RES-000016,82624486,Andrea Saavedra,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,212.00,Confirmada
+RES-000017,60101460,Pedro Saavedra,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,298.00,Confirmada
+RES-000018,40705530,Gladys Vera,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Regular,323.00,Confirmada
+RES-000019,65762105,Sheyla Peña,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,201.00,Pendiente
+RES-000020,84752835,Axel García,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,279.00,Cancelada
+RES-000021,82770389,Luana Ortega,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,231.00,Confirmada
+RES-000022,52621384,Gael Herrera,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,338.00,Cancelada
+RES-000023,59233451,Arian Salazar,BP01394,Loreto,Arequipa,2027-03-24,17:55,Ejecutiva,Frecuente,865.90,EnEspera
+RES-000024,48313774,Ian Ochoa,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,238.90,Confirmada
+RES-000025,88787767,Anthony Mendoza,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Frecuente,235.00,EnEspera
+RES-000026,49851685,José Gutiérrez,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,286.90,Pendiente
+RES-000027,71789257,Wilfredo Olivares,NR3481,San Martín,Huánuco,2027-03-09,12:35,Ejecutiva,Premium,721.90,Confirmada
+RES-000028,66149048,Juan Torres,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Premium,192.00,Confirmada
+RES-000029,70894406,Andrea Chávez,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,238.90,Confirmada
+RES-000030,46288448,Gaston Olivares,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,207.00,Confirmada
+RES-000031,75431055,Fiorella Arias,JZ9614,Puno,Lima,2027-03-01,11:30,Ejecutiva,Frecuente,754.00,Pendiente
+RES-000032,58796020,Piero Linares,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,243.00,EnEspera
+RES-000033,68675951,Fernando Gómez,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Frecuente,201.90,Confirmada
+RES-000034,57282840,Fernando Tello,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Premium,241.00,EnEspera
+RES-000035,45180784,María Espinoza,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,207.00,EnEspera
+RES-000036,49042584,Camila Mendoza,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,253.00,Confirmada
+RES-000037,45957267,Rocío Soto,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,279.90,Confirmada
+RES-000038,83858050,Enrique Medina,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,294.90,Confirmada
+RES-000039,43656203,Gael Carrillo,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,231.90,Confirmada
+RES-000040,73320026,Ana Saavedra,BP01394,Loreto,Arequipa,2027-03-24,17:55,Premium,Premium,281.00,CheckIn
+RES-000041,65682106,Yolanda Guzmán,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,312.00,Confirmada
+RES-000042,86979358,Wilfredo Vargas,JZ9614,Puno,Lima,2027-03-01,11:30,Premium,Frecuente,501.90,Pendiente
+RES-000043,79885339,Jefferson Carbajal,JZ9614,Puno,Lima,2027-03-01,11:30,Economica,Regular,266.00,Confirmada
+RES-000044,80985448,Stefany Sánchez,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,350.00,Confirmada
+RES-000045,60155449,Gonzalo Valle,BP01394,Loreto,Arequipa,2027-03-24,17:55,Premium,Frecuente,343.00,CheckIn
+RES-000046,77449234,Santino Ortega,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,210.90,Pendiente
+RES-000047,51205886,Bianca Díaz,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,232.90,Confirmada
+RES-000048,58232258,Alejandra Pardo,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Premium,257.90,EnEspera
+RES-000049,72987787,Brayan Castillo,NR3481,San Martín,Huánuco,2027-03-09,12:35,Economica,Regular,235.00,Confirmada
+RES-000050,55629289,Edgar Fajardo,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,327.00,Confirmada
