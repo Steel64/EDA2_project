@@ -18,6 +18,9 @@ Link de instalación: https://winlibs.com/
 
 ### Ejecutar proyecto
 
+- Editar las rutas de ubicacion de las reservas (./base_datos/reservas.cpp) y vuelos (./base_datos/vuelos.cpp) con la ruta completa (C:/user/...)
+- Importante, el archivo seleccionado relacionado con la BD de reservas (entre reservas_masivo o reservas_pequeño) debe relacionarse con el TAMANIO en el registro hash (./librerias/registro_hash.h)
+
 #### En windows
 - Usar el comando:
 ```
