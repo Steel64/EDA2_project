@@ -1,59 +1,79 @@
 ﻿#include <iostream>
 #include <string>
-#include "./base_datos/vuelos.h"
+#include <limits>
 #include "./librerias/registro_hash.h"
+#include "./librerias/registro_heap.h"
 using namespace std;
 
 TablaHash t_hash;
+TablaHeap t_heap;
 
 void cargar_tabla_hash() {
     for (int i=0;i<TOTAL_RESERVAS;i++){
-        int ID = stoi(registroReservas[i]->getIdReserva().substr(4));
-        t_hash.insertar(ID, registroReservas[i]);
+        t_hash.insertar(registroReservas[i]);
     }
+}
+
+void cargar_tabla_heap() {
+    t_heap.prepararRegistros();
+    for (int i=0;i<TOTAL_RESERVAS;i++){
+            if (t_heap.buscarHeap(registroReservas[i]->getCodigoVuelo()) != nullptr){
+                t_heap.insertar(registroReservas[i], registroReservas[i]->getCodigoVuelo());
+            }
+    }
+}
+void cargar_tabla_AVL() {}
+
+void continuar(){
+    cout << "\n                Presione ENTER para continuar..." << endl;
+    cin.get();
+    cout << "\n" << endl;
 }
 
 void busqueda_por_ID(){
     string ID = "";
     cout << "Ingrese el id de la reserva: ";
     cin >> ID;
-    Nodo* res = t_hash.buscar(ID);
+    NodoHash* res = t_hash.buscar(ID);
     if (res != nullptr){
         cout << res->reserva->mostrar() << endl;
     }
     else{
-        cout << "ERROR DE BUSQUEDA" << endl;
+        cout << "Reserva no encontrada" << endl;
     }
 }
 
 void inicializacion(){
+    cout << "===============================================================" << endl;
+    cout << "                  SISTEMA DE RESERVAS AEREAS" << endl;
+    cout << "===============================================================" << endl;
+    cout << "\n                 INICIALIZANDO EL SISTEMA" << endl;
+    cout << "---------------------------------------------------------------" << endl;
+    cargarVuelos();
+    cout << "\n  [1/3] Cargando informacion de vuelos........ OK" << endl;
+    cargarReservas();
+    cout << "  [2/3] Cargando informacion de reservas....... OK" << endl;
+    cargar_tabla_hash();
+    cargar_tabla_heap();
+    cargar_tabla_AVL();
+    cout << "  [3/3] Construcción de estructuras de datos..... OK" << endl;
+    cout << "\n---------------------------------------------------------------" << endl;
+    cout << "                  RESUMEN DE INICIALIZACION" << endl;
+    cout << "---------------------------------------------------------------" << endl;
+    cout << "\n  Vuelos registrados             : " << to_string(TOTAL_VUELOS) << endl;
+    cout << "  Reservas procesadas            : " << to_string(TOTAL_RESERVAS) << endl;
+    cout << "  Total en espera                : " << to_string(TOTAL_ESPERAS) << endl;
+    cout << "\n---------------------------------------------------------------" << endl;
+    cout << "  Estado del sistema: LISTO PARA OPERAR" << endl;
+    cout << "===============================================================" << endl;
     char tecla;
-    do {
-        cout << "===============================================================" << endl;
-        cout << "                  SISTEMA DE RESERVAS AEREAS" << endl;
-        cout << "===============================================================" << endl;
-        cout << "\n                 INICIALIZANDO EL SISTEMA" << endl;
-        cout << "---------------------------------------------------------------" << endl;
-        cout << "\n  [1/3] Cargando informacion de vuelos........ OK" << endl;
-        cout << "  [2/3] Cargando informacion de reservas....... OK" << endl;
-        cout << "  [3/3] Construcción de estructuras de datos..... OK" << endl;
-        cout << "\n---------------------------------------------------------------" << endl;
-        cout << "                  RESUMEN DE INICIALIZACION" << endl;
-        cout << "---------------------------------------------------------------" << endl;
-        cout << "\n  Vuelos registrados             : " << to_string(TOTAL_VUELOS) << endl;
-        cout << "  Reservas procesadas            : " << to_string(TOTAL_RESERVAS) << endl;
-        cout << "\n---------------------------------------------------------------" << endl;
-        cout << "  Estado del sistema: LISTO PARA OPERAR" << endl;
-        cout << "===============================================================" << endl;
+    do{
         cout << "\n                Presione ENTER para continuar..." << endl;
         cin.get(tecla);
     } while(tecla != '\n');
 }
 
 int main(){
-    cargarReservas();
-    cargarVuelos();
-    cargar_tabla_hash();
     inicializacion();
     int opcion;
     do {
@@ -107,6 +127,10 @@ int main(){
                 break;
             default:
                 cout << "Opcion invalida. Intente nuevamente." << endl;
+        }
+        if (opcion != 0) {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continuar();
         }
     } while (opcion != 0);
     return 0;

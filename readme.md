@@ -22,7 +22,11 @@ Link de instalación: https://winlibs.com/
 - Importante, el archivo seleccionado relacionado con la BD de reservas (entre reservas_masivo o reservas_pequeño) debe relacionarse con el TAMANIO en el registro hash (./librerias/registro_hash.h)
 
 #### En windows
-- Usar el comando:
+- Usar el comando para generar archivo main.exe:
 ```
     mingw32-make
+```
+- Usar el comando para eliminar archivo main.exe:
+```
+    mingw32-make clean
 ```

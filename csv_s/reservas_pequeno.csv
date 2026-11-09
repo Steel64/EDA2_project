@@ -1,4 +1,3 @@
-idReserva,dni,pasajero,codigoVuelo,origen,destino,fecha,hora,clase,categoria,precio,estado
 RES-000001,88209509,Lucas Paredes,BP01394,Loreto,Arequipa,2027-03-24,17:55,Economica,Regular,251.90,Confirmada
 RES-000002,78671265,Gael Salazar,DB684,Lima,San Martín,2027-03-01,11:30,Economica,Regular,322.00,Confirmada
 RES-000003,54837952,Jhon Acapana,JZ9614,Puno,Lima,2027-03-01,11:30,Premium,Frecuente,314.00,Pendiente

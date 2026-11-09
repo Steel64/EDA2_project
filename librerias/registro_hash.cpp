@@ -1,36 +1,36 @@
 #include "registro_hash.h"
 
-int TablaHash::hash(int id) {
-    if (id < 1) {
+int TablaHash::hash(Reserva* reserva) {
+    int valor = stoi(reserva->getIdReserva().substr(4));
+    if (valor < 1) {
         throw invalid_argument("El ID debe ser positivo");
     }
-    return (id-1) % TAMANIO;
+    return (valor-1) % TAMANIO;
 }
 
 TablaHash::TablaHash() {
     for (int i = 0; i < TAMANIO; i++) {
-        tabla[i] = nullptr;
+        regHash[i] = nullptr;
     }
 }
 
-void TablaHash::insertar(int id, Reserva * reserva) {
-    int idx = hash(id);
-    Nodo* nuevo = new Nodo();
-    nuevo->id = id;
+void TablaHash::insertar(Reserva* reserva) {
+    int idx = hash(reserva);
+    NodoHash* nuevo = new NodoHash();
     nuevo->reserva = reserva;
-    nuevo->siguiente = tabla[idx];
-    tabla[idx] = nuevo;
+    nuevo->siguiente = regHash[idx];
+    regHash[idx] = nuevo;
 }
 
-Nodo* TablaHash::buscar(string idReserva) {
-    int id = stoi(idReserva.substr(4));
-    int valor = hash(id);
-    Nodo* actual = tabla[valor];
-    while (actual != nullptr) {
-        if (actual->id == id){
-            return actual;
+NodoHash* TablaHash::buscar(string idReserva) {
+    for (int i = 0; i < TAMANIO; i++){
+        NodoHash* actual = regHash[i];
+        while (actual != nullptr) {
+            if (actual->reserva->getIdReserva() == idReserva){
+                return actual;
+            }
+            actual = actual->siguiente;
         }
-        actual = actual->siguiente;
     }
     return nullptr;
 };
@@ -38,7 +38,7 @@ Nodo* TablaHash::buscar(string idReserva) {
 void TablaHash::imprimir() {
     for (int i = 0; i < TAMANIO; i++) {
         cout << "Indice " << i << ": ";
-        Nodo* actual = tabla[i];
+        NodoHash* actual = regHash[i];
         while (actual != nullptr) {
             cout << actual->reserva->getIdReserva() << " -> ";
             actual = actual->siguiente;

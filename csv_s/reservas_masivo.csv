@@ -1,4 +1,3 @@
-idReserva,dni,pasajero,codigoVuelo,origen,destino,fecha,hora,clase,categoria,precio,estado
 RES-000001,68618670,Camila Saavedra,ZA28045,Lima,Piura,2027-10-03,21:25,Economica,Regular,308.90,Confirmada
 RES-000002,66202135,Camila Palomino,MQ5310,Lima,Huánuco,2027-11-29,11:05,Economica,Regular,171.90,Confirmada
 RES-000003,79300805,Yolanda Ortiz,MJ9760,Lima,Ayacucho,2026-11-13,08:45,Premium,Premium,340.00,Pendiente

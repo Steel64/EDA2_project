@@ -5,7 +5,7 @@
 #include <iostream>
 
 int TOTAL_RESERVAS = 0;
-Reserva * registroReservas[MAX_RESERVAS];
+Reserva* registroReservas[MAX_RESERVAS];
 
 void insertarReserva(string idReserva,string dni,string pasajero,string codigoVuelo,string origen,string destino,year_month_day fecha,hh_mm_ss<minutes> hora,string clase,string categoria,float precio,string estado){
     registroReservas[TOTAL_RESERVAS] = new Reserva(idReserva,dni,pasajero,codigoVuelo,origen,destino,fecha,hora,clase,categoria,precio,estado);
@@ -34,7 +34,7 @@ void cargarReservas(){
         float precio;
         char estado[12];
         
-        linea[strcspn(linea, "\r\n")] = '\0'; //Elimina el salto de línea de cada linea
+        linea[strcspn(linea, "\r\n")] = '\0';
 
         // Separar campos
         char* token = strtok(linea, ",");

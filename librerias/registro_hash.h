@@ -8,24 +8,23 @@ const int TAMANIO = 10;
 // usar para reservas_grandes
 //const int TAMANIO = 2000;
 
-struct Nodo {
-    int id;
+struct NodoHash {
     Reserva* reserva;
-    Nodo* siguiente;
+    NodoHash* siguiente;
 };
 
 class TablaHash {
 private:
-    Nodo* tabla[TAMANIO];
+    NodoHash* regHash[TAMANIO];
 
-    int hash(int id);
+    int hash(Reserva* reserva);
 
 public:
     TablaHash();
 
-    void insertar(int id, Reserva * reserva);
+    void insertar(Reserva* reserva);
 
-    Nodo* buscar(string idReserva);
+    NodoHash* buscar(string idReserva);
 
     void imprimir();
 };

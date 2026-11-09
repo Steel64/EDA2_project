@@ -1,3 +1,4 @@
+# pragma once
 #include "reserva.h"
 #include <cstring>
 using namespace std;
