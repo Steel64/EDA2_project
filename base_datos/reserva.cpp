@@ -60,15 +60,15 @@ string Reserva::getEstado() { return Estado; }
 string Reserva::mostrar() {
     ostringstream precioAjustado;
     precioAjustado << fixed << setprecision(2) << Precio;
-    return "\nDni: " + Dni
-            + "\nPasajero: " + Pasajero
-            + "\nCodigoVuelo: " + CodigoVuelo
-            + "\nOrigen: " + Origen
-            + "\nDestino: " + Destino
-            + "\nFecha: " + to_string(unsigned(Fecha.day())) + "/" + to_string(unsigned(Fecha.month())) + "/" + to_string(int(Fecha.year()))
-            + "\nHora: " + to_string(Hora.hours().count()) + ":" + (Hora.minutes().count() < 10 ? "0" : "") + to_string(Hora.minutes().count())
-            + "\nClase: " + Clase
-            + "\nCategoria: " + Categoria
-            + "\nPrecio: " + precioAjustado.str()
-            + "\nEstado: " + Estado;
+    return "Dni: " + Dni
+            + ", Pasajero: " + Pasajero
+            + ", CodigoVuelo: " + CodigoVuelo
+            + ", Origen: " + Origen
+            + ", Destino: " + Destino
+            + ", Fecha: " + to_string(unsigned(Fecha.day())) + "/" + to_string(unsigned(Fecha.month())) + "/" + to_string(int(Fecha.year()))
+            + ", Hora: " + to_string(Hora.hours().count()) + ":" + (Hora.minutes().count() < 10 ? "0" : "") + to_string(Hora.minutes().count())
+            + ", Clase: " + Clase
+            + ", Categoria: " + Categoria
+            + ", Precio: " + precioAjustado.str()
+            + ", Estado: " + Estado;
 }

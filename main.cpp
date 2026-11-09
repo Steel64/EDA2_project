@@ -1,12 +1,16 @@
 ﻿#include <iostream>
 #include <string>
+#include <iomanip>
+#include <sstream>
 #include <limits>
 #include "./librerias/registro_hash.h"
 #include "./librerias/registro_heap.h"
+#include "./librerias/registro_AVL.h"
 using namespace std;
 
 TablaHash t_hash;
 TablaHeap t_heap;
+TablaAVL t_avl;
 
 void cargar_tabla_hash() {
     for (int i=0;i<TOTAL_RESERVAS;i++){
@@ -22,7 +26,11 @@ void cargar_tabla_heap() {
             }
     }
 }
-void cargar_tabla_AVL() {}
+void cargar_tabla_AVL() {
+    for (int i = 0; i < TOTAL_RESERVAS; i++) {
+        t_avl.insertar(registroReservas[i]);
+    }
+}
 
 void continuar(){
     cout << "\n                Presione ENTER para continuar..." << endl;
@@ -32,11 +40,24 @@ void continuar(){
 
 void busqueda_por_ID(){
     string ID = "";
-    cout << "Ingrese el id de la reserva: ";
+    cout << "Ingrese el id de la reserva(ejemplo: RES-000010): ";
     cin >> ID;
     NodoHash* res = t_hash.buscar(ID);
     if (res != nullptr){
-        cout << res->reserva->mostrar() << endl;
+        ostringstream precioConDecimales;
+        year_month_day fecha = res->reserva->getFecha();
+        hh_mm_ss<minutes> hora = res->reserva->getHora();
+        precioConDecimales << fixed << setprecision(2) << res->reserva->getPrecio();
+        cout << "\nPasajero: " << res->reserva->getPasajero() << endl;
+        cout <<  "CodigoVuelo: " << res->reserva->getCodigoVuelo() << endl;
+        cout <<  "Origen: " << res->reserva->getOrigen() << endl;
+        cout <<  "Destino: " << res->reserva->getDestino() << endl;
+        cout <<  "Fecha: " << to_string(unsigned(fecha.day())) << "/" << to_string(unsigned(fecha.month())) + "/" + to_string(int(fecha.year())) << endl;
+        cout <<  "Hora: " << to_string(hora.hours().count()) << ":" << (hora.minutes().count() < 10 ? "0" : "") << to_string(hora.minutes().count()) << endl;
+        cout <<  "Clase: " << res->reserva->getClase() << endl;
+        cout <<  "Categoria: " << res->reserva->getCategoria() << endl;
+        cout <<  "Precio: " << "S/." << precioConDecimales.str() << endl;
+        cout <<  "Estado: " << res->reserva->getEstado() << endl;
     }
     else{
         cout << "Reserva no encontrada" << endl;
