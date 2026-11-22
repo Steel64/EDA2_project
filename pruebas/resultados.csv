@@ -1,0 +1,10 @@
+operacion,repeticiones,total_us,promedio_us
+carga_masiva,1,95657.7,95657.7
+busqueda_hash,1000,42.7,0.0427
+busqueda_secuencial,1000,56657.4,56.6574
+insercion_individual,100,18627.6,186.276
+consulta_ordenada,100,23.6,0.236
+consulta_rango_mes,100,3981.6,39.816
+actualizar_estado,10,1.5,0.15
+cancelar_con_promocion,10,17.2,1.72
+eliminar_fisica,10,766.3,76.63

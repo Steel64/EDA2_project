@@ -1,0 +1,6 @@
+metrica,valor
+reservas,10000
+buckets,10000
+factor_carga,1
+cadena_mas_larga,51
+altura_avl_10000,14
