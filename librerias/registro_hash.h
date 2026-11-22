@@ -4,10 +4,9 @@
 #include "../base_datos/reservas.h"
 using namespace std;
 
-// usar para csv de reservas_pequeñas
-//const int TAMANIO = 10;
-// usar para csv de reservas_masivo
-const int TAMANIO = 2000;
+
+// Tabla dimensionada para 10,000 reservas (factor de carga cercano a 1).
+const int TAMANIO = 10000;
 
 struct NodoHash {
     Reserva* reserva;
