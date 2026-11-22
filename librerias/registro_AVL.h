@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "../base_datos/reservas.h"
@@ -21,7 +22,13 @@ struct NodoAVL {
 
 class TablaAVL {
 private:
-    NodoAVL* raiz;
+    NodoAVL* raiz = nullptr;
+    int total = 0;
+    int compararClave(long long tiempo, const string& id, NodoAVL* nodo);
+    NodoAVL* eliminarR(NodoAVL* x, long long tiempo, const string& id, bool& eliminado);
+    void destruir(NodoAVL* x);
+    void recopilar(NodoAVL* x, Reserva* resultado[], int limite, int& cantidad);
+    void rangoR(NodoAVL* x, long long inicio, long long fin, Reserva* resultado[], int limite, int& cantidad, int& total);
 
     int altura(NodoAVL* x);
     void actualizarAltura(NodoAVL* x);
@@ -35,26 +42,21 @@ private:
     NodoAVL* rotarDerecha(NodoAVL* y);
     NodoAVL* rotarIzquierda(NodoAVL* x);
 
-    // ================= LOS 4 CASOS DE DESBALANCE =================
-    NodoAVL* casoLL(NodoAVL* x);
-    NodoAVL* casoRR(NodoAVL* x);
-    NodoAVL* casoLR(NodoAVL* x);
-    NodoAVL* casoRL(NodoAVL* x);
-
-    // ===== CASOS ======
     NodoAVL* balancear(NodoAVL* x);
 
-    void convertirFechaHora(year_month_day fecha, hh_mm_ss<minutes> hora, long long& tiempo);
+    long long convertirFechaHora(year_month_day fecha, hh_mm_ss<minutes> hora);
 
     //  INSERTAR(recursivo)
-    NodoAVL* insertarR(NodoAVL* x, Reserva* r, long long tiempo);
-
-    //  MOSTRAR
-    void inordenR(NodoAVL* x);
+    NodoAVL* insertarR(NodoAVL* x, Reserva* r, long long tiempo, bool& insertado);
 
 public:
 
-    void insertar(Reserva* reserva);
-    void inorden();
+    ~TablaAVL();
+    bool insertar(Reserva* reserva);
+    bool eliminar(Reserva* reserva);
+    int cantidad() const;
+    int altura();
+    void primeros(Reserva* resultado[], int limite, int& cantidad);
+    void rango(year_month_day inicio, year_month_day fin, Reserva* resultado[], int limite, int& cantidad, int& total);
 
 };

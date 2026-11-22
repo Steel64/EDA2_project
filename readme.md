@@ -18,15 +18,27 @@ Link de instalación: https://winlibs.com/
 
 ### Ejecutar proyecto
 
-- Editar las rutas de ubicacion de las reservas (./base_datos/reservas.cpp) y vuelos (./base_datos/vuelos.cpp) con la ruta completa (C:/user/...)
-- Importante, el archivo seleccionado relacionado con la BD de reservas (entre reservas_masivo o reservas_pequeño) debe relacionarse con el TAMANIO en el registro hash (./librerias/registro_hash.h)
+Antes de ejecutar, selecciona el tamanio del hash, dependiendo si es reservas_pequeño.csv o reservas.masivo.csv
+```
+En la librerias/registro_hash.h (linea 7 a 10)
+// usar para csv de reservas_pequeñas.csv
+//const int TAMANIO = 10;
+// usar para csv de reservas_masivo.csv
+const int TAMANIO = 2000;
+```
 
-#### En windows
-- Usar el comando para generar archivo main.exe:
+Se requiere un compilador con soporte de C++20. Desde la carpeta del proyecto:
+
 ```
-    mingw32-make
+mingw32-make
+./main.exe
 ```
-- Usar el comando para eliminar archivo main.exe:
+
+El programa siempre carga `csv_s/vuelos.csv`. El argumento selecciona el archivo
+de reservas: `0` carga `csv_s/reservas_pequeno.csv` y `1` carga
+`csv_s/reservas_masivo.csv`. Ejecuta desde la carpeta del proyecto:
+
 ```
-    mingw32-make clean
+main.exe 0
+main.exe 1
 ```

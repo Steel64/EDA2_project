@@ -1,4 +1,6 @@
 #include "vuelos.h"
+#include "csv.h"
+#include <fstream>
 
 int TOTAL_VUELOS = 0;
 Vuelo * registroVuelos[MAX_VUELOS];
@@ -8,66 +10,26 @@ void insertarVuelos(string codigoVuelo,string origen,string destino,year_month_d
     TOTAL_VUELOS++;
 }
 
-void cargarVuelos(){
-    FILE* archivo = fopen("../csv_s/vuelos.csv", "r");
-	if (archivo == NULL) {
-	    cout << "Error al abrir el archivo de lista" << endl;
-	    return;
-	}
-	char linea[500];
-	while (fgets(linea, sizeof(linea), archivo) != NULL) {
-        char codigoVuelo[10];
-        char origen[15];
-        char destino[15];
+void cargarVuelos() {
+    ifstream archivo("csv_s/vuelos.csv");
+    if (!archivo) { cerr << "Error al abrir csv_s/vuelos.csv\n"; return; }
+    string linea,campos[6];
+    while (TOTAL_VUELOS<MAX_VUELOS && getline(archivo,linea)) {
         year_month_day fecha;
         hh_mm_ss<minutes> hora;
         int capacidad;
-        
-        linea[strcspn(linea, "\r\n")] = '\0'; //Elimina el salto de línea de cada linea
+        if (!separarCampos(linea,campos,6) || !leerSalida(campos[3],campos[4],fecha,hora)) continue;
+        istringstream capacidadTexto(campos[5]);
+        if (!(capacidadTexto>>capacidad)) continue;
+        insertarVuelos(campos[0],campos[1],campos[2],fecha,hora,capacidad);
+    }
+}
+Vuelo* buscarVuelo(string codigoVuelo) {
+    for (int i = 0; i < TOTAL_VUELOS; i++) {
+        if (registroVuelos[i]->getCodigoVuelo() == codigoVuelo) {
+            return registroVuelos[i];
+        }
+    }
 
-        // Separar campos
-        char* token = strtok(linea, ",");
-
-        if (token == NULL) continue;
-        strncpy(codigoVuelo, token, sizeof(codigoVuelo) - 1);
-        codigoVuelo[sizeof(codigoVuelo) - 1] = '\0';
-
-        token = strtok(NULL, ",");
-        if (token == NULL) continue;
-        strncpy(origen, token, sizeof(origen) - 1);
-        origen[sizeof(origen) - 1] = '\0';
-
-        token = strtok(NULL, ",");
-        if (token == NULL) continue;
-        strncpy(destino, token, sizeof(destino) - 1);
-        destino[sizeof(destino) - 1] = '\0';
-
-        token = strtok(NULL, ",");
-        if (token == NULL) continue;
-        int anio, mes, dia;
-        if (sscanf(token, "%d-%d-%d", &anio, &mes, &dia) != 3)
-            continue;
-        fecha = std::chrono::year{anio} /
-                std::chrono::month{static_cast<unsigned>(mes)} /
-                std::chrono::day{static_cast<unsigned>(dia)};
-        if (!fecha.ok()) continue;
-
-        token = strtok(NULL, ",");
-        if (token == NULL) continue;
-        int horas, minutos;
-        if (sscanf(token, "%d:%d", &horas, &minutos) != 2)
-            continue;
-        if (horas < 0 || horas > 23 || minutos < 0 || minutos > 59)
-            continue;
-        hora = std::chrono::hh_mm_ss<std::chrono::minutes>{
-            std::chrono::hours{horas} + std::chrono::minutes{minutos}
-        };
-
-        token = strtok(NULL, ",");
-        if (token == NULL) continue;
-        capacidad = atoi(token);
-
-        insertarVuelos(codigoVuelo,origen,destino,fecha,hora,capacidad);
-	}
-	fclose(archivo);
+    return nullptr;
 }
