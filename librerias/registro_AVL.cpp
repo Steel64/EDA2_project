@@ -122,6 +122,7 @@ NodoAVL* TablaAVL::eliminarR(NodoAVL* nodo, long long tiempo, const string& id, 
     return balancear(nodo);
 }
 
+// HU5 - Eliminar reserva cancelada
 bool TablaAVL::eliminar(Reserva* reserva) {
     if (!reserva) return false;
     long long tiempo=convertirFechaHora(reserva->getFecha(),reserva->getHora());
@@ -160,6 +161,7 @@ void TablaAVL::recopilar(NodoAVL* nodo, Reserva* resultado[], int limite, int& c
     recopilar(nodo->der,resultado,limite,cantidad);
 }
 
+// HU6 - Listado cronologico
 void TablaAVL::primeros(Reserva* resultado[], int limite, int& cantidad) {
     cantidad=0;
     recopilar(raiz,resultado,limite,cantidad);
@@ -185,6 +187,7 @@ void TablaAVL::rangoR(NodoAVL* nodo, long long inicio, long long fin,
     }
 }
 
+// HU7 - Consulta por rango de fechas
 void TablaAVL::rango(year_month_day inicio, year_month_day fin,
                     Reserva* resultado[], int limite, int& cantidad, int& encontrados) {
     long long primerMinuto=convertirFechaHora(inicio,hh_mm_ss<minutes>{minutes{0}});

@@ -50,6 +50,7 @@ NodoHash* TablaHash::buscar(string idReserva) {
     return nullptr;
 }
 
+// HU5 - Eliminar reserva cancelada
 bool TablaHash::eliminar(const string& id) {
     int idx = hash(id);
     if (idx < 0) return false;

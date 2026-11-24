@@ -96,6 +96,7 @@ bool TablaHeap::insertar(Reserva* reserva, string codigo) {
     return true;
 }
 
+// HU4 - Cancelar reserva (retirar de la espera)
 bool TablaHeap::eliminar(Reserva* reserva) {
     if (!reserva) return false;
     NodoHeap* heap=buscarHeap(reserva->getCodigoVuelo());
@@ -118,6 +119,7 @@ bool TablaHeap::eliminar(Reserva* reserva) {
     return true;
 }
 
+// HU4 - Cancelar reserva (sacar la raiz de la espera)
 Reserva* TablaHeap::extraerMax(const string& codigo) {
     NodoHeap* heap=buscarHeap(codigo);
     if (!heap || heap->tam==0) return nullptr;
@@ -126,6 +128,7 @@ Reserva* TablaHeap::extraerMax(const string& codigo) {
     return primera;
 }
 
+// HU8 - Lista de espera por vuelo
 void TablaHeap::ordenados(const string& codigo, Reserva* resultado[], int& cantidad) {
     cantidad=0;
     NodoHeap* original=buscarHeap(codigo);

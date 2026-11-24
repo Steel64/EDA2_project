@@ -50,6 +50,7 @@ bool idReservaValido(const string& id) {
     return id!="RES-000000";
 }
 
+// HU1 - Registrar nueva reserva
 Reserva* registrarReserva(const string& id, const string& codigoVuelo, const string& dni,
     const string& pasajero, const string& clase, const string& categoria,
     float precio, string& error) {
@@ -85,6 +86,7 @@ Reserva* registrarReserva(const string& id, const string& codigoVuelo, const str
     return nueva;
 }
 
+// HU3 - Actualizar estado de reserva
 bool actualizarEstadoReserva(Reserva* reserva) {
     if (!reserva) return false;
     if (reserva->getEstado()=="Pendiente") {
@@ -97,6 +99,7 @@ bool actualizarEstadoReserva(Reserva* reserva) {
     return true;
 }
 
+// HU4 - Cancelar reserva
 bool cancelarReserva(Reserva* reserva, Reserva*& promovida) {
     promovida=nullptr;
     if (!reserva || reserva->getEstado()=="Cancelada") return false;
@@ -113,6 +116,7 @@ bool cancelarReserva(Reserva* reserva, Reserva*& promovida) {
     return true;
 }
 
+// HU5 - Eliminar reserva cancelada
 bool eliminarReservaCancelada(Reserva* reserva) {
     if (!reserva || reserva->getEstado()!="Cancelada") return false;
     int posicion=0;

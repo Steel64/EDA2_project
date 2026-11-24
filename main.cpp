@@ -12,6 +12,7 @@ void continuar(){
     cout << "\n" << endl;
 }
 
+// HU2 - Buscar reserva por ID
 void busqueda_por_ID() {
     string id;
     cout << "Ingrese el ID de la reserva (ejemplo: RES-000010): ";
@@ -36,6 +37,7 @@ void busqueda_por_ID() {
     else cout << "Reserva no encontrada.\n";
 }
 
+// HU1 - Registrar nueva reserva
 void registrar_reserva() {
     string id;
     cout << "Ingrese el ID de reserva (ejemplo: RES-900001): ";
@@ -120,6 +122,7 @@ Reserva* pedirReserva() {
     if (!n) cout << "Reserva no encontrada.\n";
     return n ? n->reserva : nullptr;
 }
+// HU3 - Actualizar estado de reserva
 void actualizarEstado() {
     Reserva* reserva=pedirReserva();
     if (!reserva) return;
@@ -130,6 +133,7 @@ void actualizarEstado() {
     }
 }
 
+// HU4 - Cancelar reserva
 void cancelar() {
     Reserva* reserva=pedirReserva();
     if (!reserva) return;
@@ -142,6 +146,7 @@ void cancelar() {
     cout << "Reserva cancelada.\n";
 }
 
+// HU5 - Eliminar reserva cancelada
 void eliminarReserva() {
     Reserva* reserva=pedirReserva();
     if (!reserva) return;
@@ -167,6 +172,7 @@ bool leerFecha(year_month_day& fecha) {
     fecha=year{anio}/month{static_cast<unsigned>(mes)}/day{static_cast<unsigned>(dia)};
     return fecha.ok();
 }
+// HU6 - Listado cronologico
 void listado() {
     int n;
     cout << "Cantidad [20 o 50]: ";
@@ -176,6 +182,7 @@ void listado() {
     t_avl.primeros(lista,n,cantidad);
     mostrarLista(lista,cantidad);
 }
+// HU7 - Consulta por rango de fechas
 void consultarRango() {
     year_month_day inicio,fin;
     cout << "Fecha inicial (AAAA-MM-DD): ";
@@ -188,6 +195,7 @@ void consultarRango() {
     cout << "Cantidad: " << total << ". Muestra (hasta 20):\n";
     mostrarLista(lista,cantidad);
 }
+// HU8 - Lista de espera por vuelo
 void espera() {
     string codigo;
     cout << "Codigo de vuelo: ";
@@ -221,6 +229,7 @@ void imprimirConteos(const char* titulo, const Conteo datos[], int usados) {
     cout << titulo << ":\n";
     for (int i=0; i<usados; ++i) cout << "  " << datos[i].nombre << ": " << datos[i].cantidad << '\n';
 }
+// HU9 - Estadisticas generales
 void estadisticas() {
     Conteo destinos[MAX_VUELOS], clases[3], estados[5];
     bool conteosCompletos=true;
